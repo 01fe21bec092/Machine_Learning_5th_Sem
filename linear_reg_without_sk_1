@@ -1,0 +1,11 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+plt.rcParams['figure.figsize'] = (10.0,10.0)
+
+#Preprocessing input data
+df = pd.read_csv('/content/linear_data_yt.csv')
+x = df.iloc[:,0]
+y = df.iloc[:,1]
+plt.scatter(x,y)
+plt.show()
