@@ -9,3 +9,26 @@ x = df.iloc[:,0]
 y = df.iloc[:,1]
 plt.scatter(x,y)
 plt.show()
+
+#Building the model
+m=0
+c=0
+L=0.0001
+epochs = 100
+n = float(len(x))
+
+for i in range(len(x)):
+  y_pred = m*x + c
+  D_m = (-2/n) * sum(x * (y - y_pred))
+  D_c = (-2/n)*sum(y-y_pred)
+  m = m - L*D_m
+  c = c - L*D_c
+
+print(m,c)
+
+#Making Predictions
+y_pred = m*x + c
+
+plt.scatter(x,y)
+plt.plot(x,y_pred)
+plt.show()
